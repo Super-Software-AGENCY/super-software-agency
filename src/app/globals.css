@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@theme {
+  /* ---- Super Software brand palette ---- */
+  --color-brand-teal: #34a2a1;
+  --color-brand-blue: #1e6c93;
+  --color-brand-navy: #17497a;
+
+  /* ---- Primary scale (derived from brand navy/blue) ---- */
+  --color-primary-50: #f0f9ff;
+  --color-primary-100: #e0f2fe;
+  --color-primary-200: #bae6fd;
+  --color-primary-300: #7dd3fc;
+  --color-primary-400: #38bdf8;
+  --color-primary-500: #1e6c93;
+  --color-primary-600: #17497a;
+  --color-primary-700: #123a63;
+  --color-primary-800: #0e2b4b;
+  --color-primary-900: #0a1e34;
+  --color-primary-950: #050f1b;
+
+  /* ---- Accent scale (derived from brand teal) ---- */
+  --color-accent-50: #f0fdfa;
+  --color-accent-100: #ccfbf1;
+  --color-accent-200: #99f6e4;
+  --color-accent-300: #5eead4;
+  --color-accent-400: #2dd4bf;
+  --color-accent-500: #34a2a1;
+  --color-accent-600: #2b8382;
+  --color-accent-700: #226766;
+  --color-accent-800: #1a4d4d;
+  --color-accent-900: #123434;
+
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+
+  --shadow-soft: 0 2px 15px -3px rgba(23, 73, 122, 0.08), 0 10px 20px -2px rgba(23, 73, 122, 0.05);
+  --shadow-card: 0 0 0 1px rgba(23, 73, 122, 0.06), 0 4px 6px -1px rgba(23, 73, 122, 0.1);
+  --shadow-card-hover: 0 0 0 1px rgba(23, 73, 122, 0.08), 0 20px 25px -5px rgba(23, 73, 122, 0.12),
+    0 10px 10px -5px rgba(23, 73, 122, 0.05);
+}
+
+/* ---- Brand gradient utilities (kept from original project) ---- */
+@utility bg-brand-gradient {
+  background-image: linear-gradient(
+    to bottom left,
+    var(--color-brand-teal),
+    var(--color-brand-blue),
+    var(--color-brand-navy)
+  );
+}
+
+@utility text-brand-gradient {
+  background-image: linear-gradient(
+    to bottom left,
+    var(--color-brand-teal),
+    var(--color-brand-blue),
+    var(--color-brand-navy)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@layer base {
+  * {
+    border-color: var(--color-slate-200);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+    /* `clip` (not `hidden`) keeps position: sticky working while still
+       preventing any stray horizontal scrollbar. */
+    overflow-x: clip;
+    /* The navbar is fixed, so jumping to an anchor (#service-id) would park the
+       heading underneath it. Reserve the header height here so every in-page
+       link and back/forward navigation lands in the clear. */
+    scroll-padding-top: 5.5rem;
+  }
+
+  html::-webkit-scrollbar {
+    display: none;
+  }
+
+  body {
+    @apply bg-white text-slate-900 antialiased;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+    overflow-x: clip;
+  }
+
+  ::selection {
+    @apply bg-accent-100 text-accent-900;
+  }
+}
+
+@layer components {
+  .container-custom {
+    @apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+  }
+}
+
+/* Headline gradient used across the site */
+@utility gradient-text {
+  background-image: linear-gradient(
+    to bottom left,
+    var(--color-brand-teal),
+    var(--color-brand-blue),
+    var(--color-brand-navy)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@utility animate-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+/* Honour the OS "reduce motion" setting: disable transitions/animations. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Keyboard users get a clear focus ring everywhere. */
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--color-primary-600);
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Logo entrance animation.
+   Only opacity is animated — the resting state is always the final position,
+   so the logo can never be left off-screen if the animation is skipped,
+   throttled, or disabled. */
+@keyframes logo {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@utility animate-logo {
+  animation: logo 0.5s ease-out;
+}

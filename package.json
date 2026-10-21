@@ -1,0 +1,43 @@
+{
+  "name": "super-software-agency",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Super Software — the public website (supersoftware.agency).",
+  "scripts": {
+    "dev": "next dev --webpack",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint src",
+    "typecheck": "tsc --noEmit",
+    "check": "npm run lint && tsc --noEmit && npm run build",
+    "test": "./scripts/test.sh",
+    "audit:deps": "npm audit"
+  },
+  "dependencies": {
+    "clsx": "^2.1.1",
+    "framer-motion": "^12.42.0",
+    "lucide-react": "^1.46.0",
+    "mongodb": "^7.7.0",
+    "next": "^16.3.8",
+    "nodemailer": "^10.0.12",
+    "react": "19.2.8",
+    "react-dom": "19.2.8",
+    "react-icons": "^5.6.0",
+    "tailwind-merge": "^3.7.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/nodemailer": "^6.4.16",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint-config-next": "^16.4.0",
+    "tailwindcss": "^4",
+    "tsx": "^4.23.15",
+    "typescript": "^5"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true,
+    "unrs-resolver@1.12.2": true
+  }
+}
