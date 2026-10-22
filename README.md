@@ -112,7 +112,7 @@ about it from the customer.
 1. **Five testimonials** are on the site. Confirm they are real — a fabricated
    review is a legal problem in Pakistan, and Google's own guidelines require
    review markup to match reviews that are actually visible.
-2. **The phone number** is `+92 300 0000000`, a placeholder.
+2. **The phone number** is `+92 325 2069779` (set).
 3. **The WhatsApp number** in the footer is a placeholder too.
 4. There are **no real customer logos** and no real reviews yet. Both matter more
    to conversion than anything else on the page.

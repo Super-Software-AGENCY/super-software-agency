@@ -7,7 +7,7 @@ export const COMPANY = {
   legalName: 'Super Software',
   tagline: 'We build software that scales',
   email: 'hello@supersoftware.agency',
-  phone: '+92 300 0000000',
+  phone: '+92 325 2069779',
   // Canonical host — the live site 308-redirects the apex domain to www,
   // so every canonical / og:url / sitemap entry must use the www form.
   website: 'https://www.supersoftware.agency',
